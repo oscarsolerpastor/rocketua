@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->text('sku');
             $table->boolean('active');
-            $table->foreign('model_id')->references('id')->on('products');
             $table->text('option');
             $table->timestamps();
         });

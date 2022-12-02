@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('user', UserControllerWeb::class);
+Route::resource('user', UserControllerWeb::class, 'index');
+Route::resource('user/id', UserControllerWeb::class, 'show');
