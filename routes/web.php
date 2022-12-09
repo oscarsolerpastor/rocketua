@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserControllerWeb;
+// use App\Http\Controllers\UserControllerWeb;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('user', UserControllerWeb::class, 'index');
-Route::resource('user/id', UserControllerWeb::class, 'show');
+// Route::resource('user', UserControllerWeb::class, 'index');
+// Route::resource('user/id', UserControllerWeb::class, 'show');
