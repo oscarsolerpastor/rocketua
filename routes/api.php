@@ -27,13 +27,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // CART Routes
 
-Route::post('cart', [CartController::class, 'createCart']);
-Route::get('cart/{id}', [CartController::class, 'showCart']);
-Route::post('cart/{id}/product', [CartController::class, 'addCart']);
-Route::put('cart/{id}/product', [CartController::class, 'editCart']);
-Route::delete('cart/{id}/line/{id_line}', [CartController::class, 'deleteCart']);
-Route::post('cart/{id}/coupon', [CartController::class, 'addCoupon']);
-Route::delete('cart/{id}/coupon', [CartController::class, 'deleteCoupon']);
+Route::group(['prefix' => 'cart'], function() {
+    Route::post('', [CartController::class, 'createCart']);
+    Route::get('{id}', [CartController::class, 'showCart']);
+    Route::post('{id}/product', [CartController::class, 'addCart']);
+    Route::put('{id}/product', [CartController::class, 'editCart']);
+    Route::delete('{id}/line/{id_line}', [CartController::class, 'deleteCart']);
+    Route::post('{id}/coupon', [CartController::class, 'addCoupon']);
+    Route::delete('{id}/coupon', [CartController::class, 'deleteCoupon']);
+});
 
 // CATEGORY Routes
 
@@ -61,12 +63,14 @@ Route::delete('newsletter', [NewsletterController::class, 'unsubscribeNewsletter
 
 // USERS Routes
 
-Route::post('user/login', [UserController::class, 'loginUser']);
-Route::post('user/register', [UserController::class, 'createUser']);
-Route::put('user/{id}', [UserController::class, 'updateUser']);
-Route::delete('user/{id}', [UserController::class, 'deleteUser']);
-Route::get('user/{id}/favorite', [UserController::class, 'showFavorites']);
-Route::post('user/{id}/favorite/{product}', [UserController::class, 'addFavoriteProduct']);
-Route::delete('user/{id}/favorite/{product}', [UserController::class, 'deleteFavoriteProduct']);
-Route::get('user/{id}/orders', [UserController::class, 'showOrders']);
-Route::get('user/{id}/comments', [UserController::class, 'showComments']);
+Route::group(['prefix' => 'user'], function() {
+    Route::post('login', [UserController::class, 'loginUser']);
+    Route::post('register', [UserController::class, 'createUser']);
+    Route::put('{id}', [UserController::class, 'updateUser']);
+    Route::delete('{id}', [UserController::class, 'deleteUser']);
+    Route::get('{id}/favorite', [UserController::class, 'showFavorites']);
+    Route::post('{id}/favorite/{product}', [UserController::class, 'addFavoriteProduct']);
+    Route::delete('{id}/favorite/{product}', [UserController::class, 'deleteFavoriteProduct']);
+    Route::get('{id}/orders', [UserController::class, 'showOrders']);
+    Route::get('{id}/comments', [UserController::class, 'showComments']);
+});
