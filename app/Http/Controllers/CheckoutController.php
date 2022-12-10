@@ -9,6 +9,8 @@ class CheckoutController extends Controller
 {
     public function createCheckout() {
         Log::debug('POST /checkout "Creación de pedido"');
-        return 'Creación del pedido';
+        return response()->json([
+            'desc' => 'Creación del pedido',
+        ]);
     }
 }

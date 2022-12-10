@@ -9,10 +9,14 @@ class MenuController extends Controller
 {
     public function showMenus() {
         Log::info('GET /menu "Recuperar menús"');
-        return 'Recuperar menús';
+        return response()->json([
+            'desc' => 'Recuperar menús',
+        ]);
     }
-    public function showMenu() {
+    public function showMenu($id) {
         Log::info('GET /menu/{id} "Recuperar un menú"');
-        return 'Recuperar un menú';
+        return response()->json([
+            'desc' => 'Recuperar un menú ' . $id,
+        ]);
     }
 }

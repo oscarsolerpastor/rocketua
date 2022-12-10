@@ -9,6 +9,8 @@ class CategoryController extends Controller
 {
     public function showCategory($id) {
         Log::info('GET /category/{id} "Recuperar categoría"');
-        return 'Recuperar categoría ' . $id;
+        return response()->json([
+            'desc' => 'Recuperar categoría ' . $id,
+        ]);
     }
 }
