@@ -9,6 +9,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ModelController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\CheckPermissionsMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,7 +68,7 @@ Route::group(['prefix' => 'user'], function() {
     Route::post('login', [UserController::class, 'loginUser']);
     Route::post('register', [UserController::class, 'createUser']);
     Route::put('{id}', [UserController::class, 'updateUser']);
-    Route::delete('{id}', [UserController::class, 'deleteUser']);
+    Route::delete('{id}', [UserController::class, 'deleteUser'])->middleware('check.permissions');
     Route::get('{id}/favorite', [UserController::class, 'showFavorites']);
     Route::post('{id}/favorite/{product}', [UserController::class, 'addFavoriteProduct']);
     Route::delete('{id}/favorite/{product}', [UserController::class, 'deleteFavoriteProduct']);
