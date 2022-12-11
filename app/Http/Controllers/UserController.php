@@ -21,7 +21,6 @@ class UserController extends Controller
     }
     public function updateUser($id) {
         Log::warning('PUT /user/{id} "Actualización de usuario"');
-        return 'Actualización del usuario ' . $id;
         return response()->json([
             'desc' => 'Actualización del usuario ' . $id,
         ]);
@@ -34,9 +33,8 @@ class UserController extends Controller
     }
     public function showFavorites($id) {
         Log::info('GET /user/{id}/favorite "Listado de favoritos"');
-        return response()->json([
-            'desc' => 'Listado de favoritos ' . $id,
-        ]);
+        $datos = 'Listado de favoritos ' . $id;
+        return response()->json($datos);
     }
     public function addFavoriteProduct($id, $product) {
         Log::debug('POST /user/{id}/favorite/{product} "Añadir a favoritos"');
