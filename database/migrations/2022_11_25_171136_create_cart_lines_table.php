@@ -28,10 +28,10 @@ return new class extends Migration
             $table->integer('total_tax_per_unit');
             $table->timestamps();
 
-            $table->integer('cart_id')->unsigned();
-            $table->foreign('cart_id')->references('id')->on('carts');
+            // $table->integer('cart_id')->unsigned();
+            // $table->foreign('cart_id')->references('id')->on('carts');
 
-            
+
         });
     }
 
