@@ -20,6 +20,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/products', function () {
+    return view('products');
+});
+
+Route::get('/createproduct', function () {
+    return view('createproduct');
+});
+
+Route::get('/editproduct', function () {
+    return view('editproduct');
+});
+
 Route::resource('category', CategoryControllerWeb::class);
 Route::resource('product', ProductControllerWeb::class);
 Route::resource('model', ModelControllerWeb::class);
