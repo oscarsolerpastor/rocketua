@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\UserControllerWeb;
+use App\Http\Controllers\CategoryControllerWeb;
+use App\Http\Controllers\ProductControllerWeb;
+use App\Http\Controllers\ModelControllerWeb;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::resource('user', UserControllerWeb::class, 'index');
-// Route::resource('user/id', UserControllerWeb::class, 'show');
+Route::resource('category', CategoryControllerWeb::class);
+Route::resource('product', ProductControllerWeb::class);
+Route::resource('model', ModelControllerWeb::class);
